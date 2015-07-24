@@ -21,18 +21,19 @@ class TweetTableViewCell: UITableViewCell {
     @IBOutlet weak var tweetText: UILabel!
     
     func updateUI() {
-        tweetText?.attributedText = nil
         tweetScreenName?.text = nil
         tweetProfileImageView?.image = nil
         
         if let tweet = self.tweet {
-            tweetText.text = tweet.text
+            tweetText?.attributedText = updateTextWithAttributes(tweet)
             
-            if tweetText?.text != nil {
-                for _ in tweet.media {
-                    tweetText.text! += "."
-                }
-            }
+//            tweetText.text = tweet.text
+//            
+//            if tweetText?.text != nil {
+//                for _ in tweet.media {
+//                    tweetText.text! += "."
+//                }
+//            }
         }
         
         tweetScreenName?.text = "\(tweet?.user)"
@@ -49,5 +50,25 @@ class TweetTableViewCell: UITableViewCell {
                 }
             })
         }
+    }
+    
+    private func updateTextWithAttributes(aTweet: Tweet) -> NSAttributedString? {
+        var textString = NSMutableAttributedString(string: aTweet.text, attributes: [NSForegroundColorAttributeName: self.tweetText.textColor,
+            NSFontAttributeName: self.tweetText.font])
+
+        for hashtag in aTweet.hashtags {
+            textString.setAttributes([NSForegroundColorAttributeName: UIColor.redColor()], range: hashtag.nsrange)
+        }
+
+        
+        for url in aTweet.urls {
+            textString.setAttributes([NSForegroundColorAttributeName : UIColor.blueColor()], range: url.nsrange)
+        }
+        
+        for mention in aTweet.userMentions {
+            textString.setAttributes([NSForegroundColorAttributeName : UIColor.greenColor()], range: mention.nsrange)
+        }
+        
+        return textString
     }
 }
