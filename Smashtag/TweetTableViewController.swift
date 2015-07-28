@@ -15,7 +15,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     var searchText: String? = "#hmfc" {
         didSet {
             lastSuccessfulRequest = nil
-            searchTextField.text = searchText
+            searchTextField?.text = searchText
             tweets.removeAll()
             tableView.reloadData()
             refresh()
@@ -84,9 +84,8 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-        
+
         refresh()
-        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -160,14 +159,20 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-    }
-    */
 
+        if let selectedCell = sender as? UITableViewCell {
+            if let indexPath = tableView.indexPathForCell(selectedCell) {
+                if let tweetInfoTableViewController = segue.destinationViewController as? TweetInfoTableViewController {
+                     tweetInfoTableViewController.selectedTweet = tweets[indexPath.section][indexPath.row]
+                }
+            }
+        }
+    }
 }
