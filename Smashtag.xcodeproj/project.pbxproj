@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C300BBC1B68E0BC006BA7AF /* TwitterSearchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C300BBB1B68E0BC006BA7AF /* TwitterSearchesTableViewController.swift */; };
+		3C300BBE1B68E59D006BA7AF /* SavedTweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C300BBD1B68E59D006BA7AF /* SavedTweets.swift */; };
 		3C397B081B6689A300467CBB /* TweetImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C397B071B6689A300467CBB /* TweetImageViewCell.swift */; };
 		3C57E1491B6586FA00DB373E /* TweetInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C57E1481B6586FA00DB373E /* TweetInfoTableViewController.swift */; };
 		3C60EC971B61185D0066BD41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C60EC961B61185D0066BD41 /* AppDelegate.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C300BBB1B68E0BC006BA7AF /* TwitterSearchesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterSearchesTableViewController.swift; sourceTree = "<group>"; };
+		3C300BBD1B68E59D006BA7AF /* SavedTweets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedTweets.swift; sourceTree = "<group>"; };
 		3C397B071B6689A300467CBB /* TweetImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetImageViewCell.swift; sourceTree = "<group>"; };
 		3C57E1481B6586FA00DB373E /* TweetInfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetInfoTableViewController.swift; sourceTree = "<group>"; };
 		3C60EC911B61185D0066BD41 /* Smashtag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smashtag.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +97,7 @@
 		3C60EC931B61185D0066BD41 /* Smashtag */ = {
 			isa = PBXGroup;
 			children = (
+				3C300BBB1B68E0BC006BA7AF /* TwitterSearchesTableViewController.swift */,
 				3C60ECB81B6119AF0066BD41 /* Twitter */,
 				3C60ECB61B6118EE0066BD41 /* TweetTableViewController.swift */,
 				3C60EC9A1B61185D0066BD41 /* Main.storyboard */,
@@ -101,6 +106,7 @@
 				3C397B071B6689A300467CBB /* TweetImageViewCell.swift */,
 				3C57E1481B6586FA00DB373E /* TweetInfoTableViewController.swift */,
 				3C60EC941B61185D0066BD41 /* Supporting Files */,
+				3C300BBD1B68E59D006BA7AF /* SavedTweets.swift */,
 			);
 			path = Smashtag;
 			sourceTree = "<group>";
@@ -193,6 +199,7 @@
 				TargetAttributes = {
 					3C60EC901B61185D0066BD41 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = SX89JQ2RAS;
 					};
 					3C60ECA51B61185D0066BD41 = {
 						CreatedOnToolsVersion = 6.4;
@@ -251,9 +258,11 @@
 				3C60ECB71B6118EE0066BD41 /* TweetTableViewController.swift in Sources */,
 				3C60ECBD1B6119AF0066BD41 /* MediaItem.swift in Sources */,
 				3C57E1491B6586FA00DB373E /* TweetInfoTableViewController.swift in Sources */,
+				3C300BBE1B68E59D006BA7AF /* SavedTweets.swift in Sources */,
 				3C60ECBE1B6119AF0066BD41 /* Tweet.swift in Sources */,
 				3C60ECC21B6120400066BD41 /* TweetTableViewCell.swift in Sources */,
 				3C397B081B6689A300467CBB /* TweetImageViewCell.swift in Sources */,
+				3C300BBC1B68E0BC006BA7AF /* TwitterSearchesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,9 +391,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Smashtag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -392,9 +404,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Smashtag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

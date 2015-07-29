@@ -11,15 +11,24 @@ import UIKit
 class TweetTableViewController: UITableViewController, UITextFieldDelegate {
 
     var tweets = [[Tweet]]()
+
     
     var searchText: String? = "#hmfc" {
         didSet {
             lastSuccessfulRequest = nil
+            
             searchTextField?.text = searchText
             tweets.removeAll()
             tableView.reloadData()
             refresh()
+            
+            let savedSearches = SavedTweets()
+            savedSearches.addSearchItem(searchText!)
         }
+    }
+    
+    private func saveSearchField () {
+        
     }
     
     // MARK: - Refreshing
@@ -42,7 +51,8 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         refreshControl?.beginRefreshing()
         refresh(refreshControl)
     }
-
+    
+    
     
     @IBAction func refresh(sender: UIRefreshControl?) {
         
